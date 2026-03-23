@@ -1,3 +1,4 @@
+![Project Banner](image_0.png)
 # datapath_agt (Open Source MVP)
 
 A lightweight **multi-agent** framework for **hardware RTL generation + verification**:
