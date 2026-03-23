@@ -1,0 +1,32 @@
+# RV32I Datapath (MVP example)
+
+Design a datapath-only RV32I core slice (no caches, no CSR, no interrupts).
+
+## Top module
+- Name: rv32i_datapath
+- Language: Verilog (SystemVerilog-2012 allowed if needed)
+- Clock: clk
+- Reset: rst_n (synchronous, active-low)
+
+## Functional requirements
+- Support base RV32I integer instructions: R-type + I-type ALU ops, LUI/AUIPC, branches, JAL/JALR, loads/stores address generation.
+- Focus on datapath correctness and synthesizability.
+- Constraints: synthesizable, no latches, no combinational loops.
+
+## Suggested ports (may be adjusted minimally if needed)
+Inputs:
+- clk, rst_n
+- instr[31:0]
+- pc_in[31:0]
+- rs1_data[31:0], rs2_data[31:0]
+
+Outputs:
+- pc_next[31:0]
+- alu_result[31:0]
+- rd_we
+- rd_addr[4:0]
+- rd_data[31:0]
+
+## Verification expectations
+- The generated testbench should create clock/reset and drive a small deterministic instruction/data sequence.
+- If uncertain, prioritize compiling and producing meaningful waveforms (VCD).
